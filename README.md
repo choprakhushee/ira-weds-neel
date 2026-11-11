@@ -4,8 +4,10 @@ A floral "Secret Garden" wedding invitation website by **Aamantran Atelier**.
 
 Live: https://choprakhushee.github.io/ira-weds-neel/
 
-Everything is in one `index.html`: the flowers, the illustrated bride and groom, the Nilgiri hills and
-the music are all drawn or generated in the browser. The only outside resource is Google Fonts.
+The page is one `index.html` plus painted artwork in `assets/art/`. The painted couple, floral arch,
+corner bouquets and the five event flowers are AI watercolour art made in Canva. The garlands, flower
+confetti, flower swing, flower elephant and peacock, petal butterflies, hills and music are drawn or
+generated in the browser. If any painted image is missing, a hand-drawn SVG version is shown instead.
 
 ## Edit the details
 
@@ -17,23 +19,26 @@ WhatsApp can't run JavaScript, so update those by hand for a new couple.
 
 ## Personalised guest links
 
-Add `?guest=` to the link. The name appears on the opening doors and in the WhatsApp RSVP message.
+Add `?guest=` to the link. The name appears on the opening doors and in the WhatsA## Swap in your own photos or artwork
 
-- https://choprakhushee.github.io/ira-weds-neel/?guest=Sharma%20Family
-- https://choprakhushee.github.io/ira-weds-neel/?guest=Ananya%20%26%20Rohan
-
-Use `%20` for spaces and `%26` for `&`.
-
-## Real photos or illustrations (optional)
-
-Put files with these names in `assets/`. They replace the drawings automatically, and any missing
-file keeps its drawing. The browser console shows a "404" line for each empty slot; that is expected.
+All painted images are listed in `CONFIG.images` (and each event's `image`) near the top of `index.html`.
+Replace a file in `assets/art/` with your own using the same name, or point the path at a new file.
 
 | File | Shown in | Suggested size |
 |---|---|---|
-| `couple.png` | Under the hero arch and in the sign-off wreath | 1000 × 1500, transparent PNG, full length |
-| `bride.png`, `groom.png` | The oval portraits | 800 × 1100, head and shoulders in the upper half |
-| `mehendi.png`, `haldi.png`, `sangeet.png`, `wedding.png`, `reception.png` | Inside each event's arch | 900 × 1000 |
+| `assets/art/couple.webp` | Under the hero arch, the sign-off and the share image | about 800 × 1300, transparent, full length |
+| `assets/art/couple-bust.webp` | The Bride & The Groom portrait (arched frame) | about 700 × 670, head and shoulders |
+| `assets/art/arch.webp` | The floral arch around the couple | about 1000 × 1333, transparent, open centre |
+| `assets/art/bouquet-tl.webp`, `bouquet-br.webp` | Corner bouquets on the doors, hero, portrait, RSVP card and desktop backdrop | about 760 × 780, transparent |
+| `assets/art/jasmine.webp`, `marigold.webp`, `orchid.webp`, `rose.webp`, `lily.webp` | Each event card | about 640 wide, transparent |
+
+Transparent PNG or WebP both work. For a normal photo of the couple (not a cut-out), set
+`images.couple.fit` to `"cover"`. Keep each file under about 400 KB.
+
+The flower garlands, confetti and animals take their colours from `CONFIG.garland`, `CONFIG.confetti`
+and each event's `garland` list.
+
+dding.png`, `reception.png` | Inside each event's arch | 900 × 1000 |
 
 For a normal photo of the couple (not a cut-out), set `images.couple.fit` to `"cover"` in `CONFIG`.
 Keep each file under about 400 KB.

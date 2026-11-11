@@ -241,6 +241,111 @@ a{color:inherit}
 .footer{margin-top:58px;padding-top:22px;border-top:1px solid rgba(201,166,90,.35);font:400 9.5px/1.8 Montserrat,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);padding-left:.26em}
 .footer b{display:block;font:500 14px/1.6 "Cormorant Garamond",serif;letter-spacing:.32em;color:var(--gold-deep);padding-left:.32em}
 
+/* ---------- painted art + floral effects ---------- */
+.toran{position:absolute;left:0;right:0;top:0;width:100%;height:auto;z-index:3;pointer-events:none;overflow:visible}
+.hero{padding-top:118px}
+.hero .corner{position:absolute;width:42%;max-width:200px;pointer-events:none;z-index:4;top:-10px}
+.hero .corner.tl{left:-9%}
+.hero .corner.tr{right:-9%;transform:scaleX(-1)}
+.hero-art{position:relative;z-index:2;margin:18px auto 0;width:min(96%,440px);aspect-ratio:1000/1333}
+.hero-art .sky{position:absolute;left:16%;right:16%;top:10%;bottom:3%;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent);border-radius:999px 999px 6px 6px;background:radial-gradient(70% 55% at 50% 38%,#FFF8F3 0%,#F9E3DF 60%,#F2D0CD 100%);box-shadow:inset 0 0 40px rgba(201,138,143,.25)}
+.hero-art .ground{position:absolute;left:10%;right:10%;bottom:0;height:12%;background:radial-gradient(50% 50% at 50% 50%,rgba(201,138,143,.35),transparent 70%);filter:blur(4px)}
+.hero-art .couple-img{position:absolute;left:50%;bottom:1%;height:76%;width:auto;transform:translateX(-50%);filter:drop-shadow(0 12px 16px rgba(110,60,60,.22))}
+.hero-art .couple-img.cover{left:15%;right:15%;top:10%;bottom:2%;height:auto;width:70%;transform:none;object-fit:cover;border-radius:999px 999px 6px 6px}
+.hero-art .arch-img{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.names{margin-top:4px}
+
+.portrait{position:relative;margin:34px auto 0;width:min(80%,330px)}
+.pframe{position:relative;aspect-ratio:700/666;border-radius:999px 999px 18px 18px;overflow:hidden;background:radial-gradient(70% 60% at 50% 40%,#FFF8F3,#F4D9D6);
+  box-shadow:0 26px 50px -26px rgba(110,60,60,.55),0 0 0 1px rgba(201,166,90,.8),0 0 0 6px #FFFBF6,0 0 0 7px rgba(201,166,90,.45)}
+.pframe img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.portrait .pc{position:absolute;width:52%;pointer-events:none;z-index:2}
+.portrait .pc.tl{left:-27%;top:-8%}
+.portrait .pc.br{right:-24%;bottom:-16%}
+.pair.names-only{margin-top:6px;grid-template-columns:1fr 1fr}
+.mono-mid{width:74px;height:74px;margin:30px auto 0}
+.mono-mid svg{width:100%;height:100%;overflow:visible}
+
+.swing-wrap{width:min(92%,340px);margin:-50px auto 18px}
+.swing-wrap svg{width:100%;height:auto;overflow:visible}
+.swing-arm{will-change:transform}
+
+.peacock-wrap{width:min(100%,380px);margin:10px auto -4px}
+.peacock-wrap svg{width:100%;height:auto;overflow:visible}
+.peacock .fth > g{transform:rotate(-90deg) scale(.55);transform-origin:0 0;transition:transform 1.8s cubic-bezier(.2,.7,.25,1) var(--d)}
+.peacock.in .fth > g{transform:rotate(var(--a)) scale(1)}
+.peacock .pc-body{transform-box:fill-box;transform-origin:50% 100%;animation:bob 3.6s ease-in-out infinite}
+.peacock .pc-tail{animation:none}
+@keyframes bob{50%{transform:translateY(-2px) rotate(-1.2deg)}}
+
+.ev-top{position:relative;margin:-14px -20px 0;padding-top:30px}
+.ev-toran{position:absolute;left:0;right:0;top:0;width:100%;height:auto;z-index:2;pointer-events:none}
+.ev-art{position:relative;height:236px;margin-bottom:18px;display:flex;align-items:flex-end;justify-content:center}
+.ev-art .ev-wash{position:absolute;left:50%;top:56%;width:230px;height:200px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,#FFFDF9 30%,var(--tint) 70%,transparent);filter:blur(4px)}
+.ev-art .ev-img{position:relative;max-height:196px;max-width:80%;width:auto;height:auto;filter:drop-shadow(0 10px 14px rgba(110,60,60,.18))}
+.ev-art svg.arch{position:absolute;inset:auto -20px 0;width:calc(100% + 40px)}
+
+.walker{position:absolute;left:0;bottom:6%;width:36%;max-width:170px;animation:walk 46s linear infinite;pointer-events:none}
+.walker svg{width:100%;height:auto;overflow:visible}
+@keyframes walk{from{transform:translateX(-120%)}to{transform:translateX(min(480px,100vw))}}
+.elephant .leg{transform-box:fill-box;transform-origin:50% 0;animation:stride 1.4s ease-in-out infinite alternate}
+.elephant .leg.b{animation-delay:-.7s}
+@keyframes stride{from{transform:rotate(9deg)}to{transform:rotate(-9deg)}}
+.elephant .el-body{animation:plod 1.4s ease-in-out infinite alternate}
+@keyframes plod{from{transform:translateY(0)}to{transform:translateY(-1.5px)}}
+.elephant .ear{transform-box:fill-box;transform-origin:30% 20%;animation:flap 2.6s ease-in-out infinite alternate}
+@keyframes flap{to{transform:rotate(-7deg) scaleX(.92)}}
+.elephant .tail{transform-box:fill-box;transform-origin:100% 0;animation:flap 1.8s ease-in-out infinite alternate}
+
+.rsvp-card .cb{width:136px}
+.rsvp-card .cb.br{right:-30px;bottom:-64px;transform:none;width:124px}
+.rsvp-card .contacts{padding-bottom:28px}
+.rsvp-card{margin-bottom:30px}
+.sign-toran{position:absolute}
+.signoff{padding-top:120px}
+.sign-art{position:relative;width:min(70%,270px);aspect-ratio:1;margin:0 auto}
+.sign-art .disc{position:absolute;inset:4%;border-radius:50%;background:radial-gradient(circle at 50% 40%,#FFF8F3,#F4D6D4);box-shadow:0 0 0 1px rgba(201,166,90,.8),0 0 0 6px #FFFBF6,0 0 0 7px rgba(201,166,90,.4)}
+.sign-art .sc{position:absolute;left:50%;bottom:7%;height:84%;transform:translateX(-50%);filter:drop-shadow(0 8px 10px rgba(110,60,60,.2))}
+.sign-art .pc{position:absolute;width:50%;pointer-events:none}
+.sign-art .pc.tl{left:-20%;top:-12%}
+.sign-art .pc.br{right:-20%;bottom:-8%}
+.sign-art{margin-bottom:34px}
+
+#opener .door{overflow:hidden}
+#opener .door .panel{position:absolute;inset:0;background:radial-gradient(90% 60% at 30% 40%,#FBEAE6,transparent 70%),radial-gradient(80% 50% at 70% 80%,#F6DAD5,transparent 70%),linear-gradient(165deg,#F9E6E1,#EFCFCB);
+  box-shadow:inset 0 0 0 10px rgba(255,251,246,.5),inset 0 0 0 11px rgba(201,166,90,.8),inset 0 0 0 16px rgba(255,251,246,.35),inset 0 0 0 17px rgba(201,166,90,.45)}
+#opener .door .panel::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.9}
+#opener .door .dt,#opener .door .db{position:absolute;width:118%;max-width:none;pointer-events:none}
+#opener .door.l .dt{left:-22%;top:60px}
+#opener .door.l .db{left:-12%;bottom:-6%;transform:scaleX(-1)}
+#opener .door.r .dt{right:-22%;top:60px;transform:scaleX(-1)}
+#opener .door.r .db{right:-12%;bottom:-6%}
+#opener .door .door-toran{position:absolute;left:0;top:0;width:100%;height:auto;z-index:2}
+#opener .door .seam{position:absolute;top:0;height:100%;width:40px;z-index:2}
+#opener .door .sprinkle{position:absolute;inset:0;width:100%;height:100%}
+#opener .door.l .seam{right:-2px}
+#opener .door.r .seam{left:-2px}
+
+#backdrop img{position:absolute;width:min(34vw,520px);opacity:.92}
+#backdrop .b1{left:-3vw;top:-4vh}
+#backdrop .b2{right:-3vw;bottom:-4vh;transform:none}
+#backdrop .b3{right:-4vw;top:-6vh;transform:scaleX(-1);width:min(24vw,380px);opacity:.7}
+#backdrop .b4{left:-4vw;bottom:-6vh;transform:scaleX(-1);width:min(24vw,380px);opacity:.7}
+@media (max-width:560px){#backdrop img{display:none}}
+
+#flutter{position:fixed;inset:0;z-index:45;pointer-events:none;overflow:hidden}
+.bfly{position:absolute;left:0;top:0;width:30px;height:24px;margin:-12px 0 0 -15px}
+.bfly svg{width:100%;height:100%;overflow:visible}
+.bfly .wl,.bfly .wr{transform-box:fill-box;animation:flapw var(--flap,.28s) ease-in-out infinite alternate}
+.bfly .wl{transform-origin:100% 50%}
+.bfly .wr{transform-origin:0 50%}
+@keyframes flapw{to{transform:scaleX(.25)}}
+
+@media (prefers-reduced-motion:reduce){
+  .walker,.elephant *,.peacock .pc-body{animation:none!important}
+  .walker{left:30%}
+  .peacock .fth > g{transform:rotate(var(--a));transition:none}
+}
 /* ---------- og card mode ---------- */
 body.og{background:#fff;margin:0}
 body.og #og{display:block;width:1200px;height:630px}
@@ -334,11 +439,11 @@ const CONFIG = {
   eventsIntro: { label: "The celebrations", title: "Five Moments in Bloom", sub: "Coonoor, The Nilgiris · November 2027" },
   timezone: "Asia/Kolkata", tzOffset: "+05:30",
   events: [
-    { name: "Mehendi",  flower: "Jasmine",    type: "jasmine",  date: "2027-11-18", time: "16:00", hours: 4, venue: "The Greenhouse Pavilion", dress: "Mint & white",               swatches: ["#BFD8C6", "#FFFFFF"], colour: "#A8B89B", tint: "#E6EEE0", ink: "#4F6B4A", image: "assets/mehendi.png",   map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
-    { name: "Haldi",    flower: "Marigold",   type: "marigold", date: "2027-11-19", time: "10:00", hours: 3, venue: "The Sunlit Lawns",        dress: "Yellow & orange",            swatches: ["#F4C542", "#EE8A2E"], colour: "#E9A23B", tint: "#FBE8C6", ink: "#8A5A16", image: "assets/haldi.png",     map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
-    { name: "Sangeet",  flower: "Orchid",     type: "orchid",   date: "2027-11-19", time: "19:30", hours: 4, venue: "The Glass Conservatory",  dress: "Purple & glam",              swatches: ["#8E5FA8", "#C9A65A"], colour: "#A37BB8", tint: "#ECE0F2", ink: "#6B4482", image: "assets/sangeet.png",   map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
-    { name: "Wedding",  flower: "Rose",       type: "rose",     date: "2027-11-20", time: "18:30", hours: 5, venue: "The Rose Garden Mandap",  dress: "Traditional, pastels welcome", swatches: ["#F2D4D0", "#E7A8B3", "#C9D6C0"], colour: "#E7A8B3", tint: "#F8DDDF", ink: "#9A5560", subtitle: "Pheras", image: "assets/wedding.png", map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
-    { name: "Reception",flower: "White Lily", type: "lily",     date: "2027-11-21", time: "20:00", hours: 4, venue: "The Ivory Hall",          dress: "Ivory, champagne & gold",    swatches: ["#FBF6EF", "#EAD9B5", "#C9A65A"], colour: "#E3CFA6", tint: "#F5EBD8", ink: "#7A5C2E", image: "assets/reception.png", map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" }
+    { name: "Mehendi", garland: ["#FFFFFF", "#F3F7EE", "#DDEBD7", "#C7DCC0", "#FFF8EC"],  flower: "Jasmine",    type: "jasmine",  date: "2027-11-18", time: "16:00", hours: 4, venue: "The Greenhouse Pavilion", dress: "Mint & white",               swatches: ["#BFD8C6", "#FFFFFF"], colour: "#A8B89B", tint: "#E6EEE0", ink: "#4F6B4A", image: "assets/art/jasmine.webp",   map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
+    { name: "Haldi", garland: ["#FFD66B", "#F9B233", "#F39A1E", "#FFE59A", "#E8841A"],    flower: "Marigold",   type: "marigold", date: "2027-11-19", time: "10:00", hours: 3, venue: "The Sunlit Lawns",        dress: "Yellow & orange",            swatches: ["#F4C542", "#EE8A2E"], colour: "#E9A23B", tint: "#FBE8C6", ink: "#8A5A16", image: "assets/art/marigold.webp",     map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
+    { name: "Sangeet", garland: ["#E9D8F2", "#D2B3E3", "#B98ED1", "#9F6BBF", "#F3E9F8"],  flower: "Orchid",     type: "orchid",   date: "2027-11-19", time: "19:30", hours: 4, venue: "The Glass Conservatory",  dress: "Purple & glam",              swatches: ["#8E5FA8", "#C9A65A"], colour: "#A37BB8", tint: "#ECE0F2", ink: "#6B4482", image: "assets/art/orchid.webp",   map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
+    { name: "Wedding", garland: ["#FBE3E8", "#F2B3C3", "#EA97AD", "#DF7E98", "#FFF4F1"],  flower: "Rose",       type: "rose",     date: "2027-11-20", time: "18:30", hours: 5, venue: "The Rose Garden Mandap",  dress: "Traditional, pastels welcome", swatches: ["#F2D4D0", "#E7A8B3", "#C9D6C0"], colour: "#E7A8B3", tint: "#F8DDDF", ink: "#9A5560", subtitle: "Pheras", image: "assets/art/rose.webp", map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
+    { name: "Reception", garland: ["#FFFDF7", "#F7EEDC", "#EBDDBF", "#E0CB9F", "#FFF8E8"],flower: "White Lily", type: "lily",     date: "2027-11-21", time: "20:00", hours: 4, venue: "The Ivory Hall",          dress: "Ivory, champagne & gold",    swatches: ["#FBF6EF", "#EAD9B5", "#C9A65A"], colour: "#E3CFA6", tint: "#F5EBD8", ink: "#7A5C2E", image: "assets/art/lily.webp", map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" }
   ],
   venue: { label: "The venue", title: "Among the Misty Hills", name: "The Garden Estate", address: "Coonoor · The Nilgiris · Tamil Nadu", note: "Tea-scented air, rolling mist and a garden in full bloom.", map: "https://www.google.com/maps/search/?api=1&query=Sim's+Park+Coonoor" },
   rsvp: {
@@ -353,12 +458,18 @@ const CONFIG = {
     ]
   },
   signoff: { line: "Our garden is incomplete without you", credit: "Aamantran Atelier" },
-  /* Optional photos / illustrations. If a file is missing the hand-drawn SVG is shown instead. */
+  /* Painted artwork (transparent images). Swap any path for your own file, e.g. "assets/couple.png".
+     If a file is missing, the hand-drawn SVG version is shown instead. */
   images: {
-    couple: { src: "assets/couple.png", fit: "contain" },  // "contain" for a transparent PNG cut-out, "cover" for a photo
-    bride:  { src: "assets/bride.png" },
-    groom:  { src: "assets/groom.png" }
+    couple:   { src: "assets/art/couple.webp", fit: "contain" },  // full-length couple; "cover" for a normal photo
+    portrait: { src: "assets/art/couple-bust.webp" },              // head-and-shoulders, for The Couple section
+    arch:     { src: "assets/art/arch.webp" },                     // floral arch around the couple in the hero
+    cornerTL: { src: "assets/art/bouquet-tl.webp" },               // corner bouquets used across the page
+    cornerBR: { src: "assets/art/bouquet-br.webp" }
   },
+  /* Shades for the code-drawn flower garlands, confetti and flower animals */
+  garland: ["#FBE3E8", "#F7CDD7", "#F2B3C3", "#EA97AD", "#DF7E98", "#F5C4C9", "#E9A6B4", "#FFF4F1"],
+  confetti: ["#F7CDD7", "#EA97AD", "#DF7E98", "#FBE3E8", "#D9C2EC", "#F9CDB0", "#FFE08A", "#FFFFFF", "#CFE5C9"],
   music: { volume: 0.25, bpm: 70 },
   colors: { ivory: "#FBF6EF", blush: "#F2D4D0", dustyRose: "#C98A8F", peony: "#E7A8B3", sage: "#A8B89B", leaf: "#4F6B4A", gold: "#C9A65A", ink: "#4A3B3A" }
 };
@@ -707,6 +818,200 @@ const useSym = (id, cls = "", vb = "0 0 300 300", extra = "") => `<svg class="${
 const divider = () => `<svg class="divider rv" viewBox="0 0 240 40" aria-hidden="true"><use href="#divider"/></svg>`;
 
 /* =====================================================================
+   Floral effects kit — genda-style pom-pom flowers, garlands, ladis,
+   flower-filled animals (elephant, peacock, lovebirds), swing, butterflies
+   ===================================================================== */
+const hex2 = h => { if (h.length === 4) h = "#" + [...h.slice(1)].map(c => c + c).join(""); return [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); };
+const mix = (a, b, t) => "#" + hex2(a).map((v, i) => Math.round(v + (hex2(b)[i] - v) * t).toString(16).padStart(2, "0")).join("");
+(function fxPaints() {
+  $("#defs").insertAdjacentHTML("beforeend",
+    `<radialGradient id="ppShade" cx=".38" cy=".32" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#5A2236" stop-opacity=".3"/></radialGradient>` +
+    `<linearGradient id="rope" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B08D45"/><stop offset=".5" stop-color="#EAD7A0"/><stop offset="1" stop-color="#9C7A38"/></linearGradient>`);
+})();
+/* a ruffled marigold-style pom-pom (genda) */
+function pom(r, col, R) {
+  const dk = mix(col, "#7A2E44", .3), md = mix(col, "#FFFFFF", .2), lt = mix(col, "#FFFFFF", .5), small = r < 9.5, tiny = r < 6.5;
+  let s = `<circle r="${f1(r * .95)}" fill="${dk}" opacity=".4"/>`, a0 = R() * 30;
+  const ring = (n, dist, rx, ry, fill, so) => { for (let i = 0; i < n; i++) s += `<ellipse cy="${f1(-r * dist)}" rx="${f1(r * rx)}" ry="${f1(r * ry)}" fill="${fill}" stroke="${dk}" stroke-width="${f1(Math.max(.25, r * .045))}" stroke-opacity="${so}" transform="rotate(${f1(a0 + i * 360 / n)})"/>`; };
+  if (tiny) { ring(7, .5, .34, .46, col, .5); return s + `<circle r="${f1(r * .26)}" fill="${md}"/><circle r="${f1(r)}" fill="url(#ppShade)"/>`; }
+  ring(small ? 10 : 13, .58, .3, .42, col, .55);
+  ring(small ? 6 : 9, .32, .27, .34, md, .45);
+  if (!small) ring(6, .12, .2, .22, lt, .35);
+  return s + `<circle r="${f1(r * .12)}" fill="${lt}"/><circle r="${f1(r)}" fill="url(#ppShade)"/>`;
+}
+/* a five-petal blossom */
+function blossom(r, col, R) {
+  const dk = mix(col, "#7A2E44", .3); let s = "", a0 = R() * 72;
+  for (let i = 0; i < 5; i++) s += `<ellipse cx="0" cy="${f1(-r * .55)}" rx="${f1(r * .42)}" ry="${f1(r * .55)}" fill="${col}" stroke="${dk}" stroke-width="${f1(Math.max(.25, r * .05))}" stroke-opacity=".5" transform="rotate(${f1(a0 + i * 72)})"/>`;
+  return s + `<circle r="${f1(r * .22)}" fill="#E9C46A"/><circle r="${f1(r)}" fill="url(#ppShade)" opacity=".7"/>`;
+}
+const pickCol = (pal, R) => pal[Math.floor(R() * pal.length)];
+const mangoLeaf = (x, y, a, L) => `<path transform="translate(${f1(x)} ${f1(y)}) rotate(${f1(a)})" d="M0 0 C${f1(L * .25)} ${f1(L * .2)} ${f1(L * .25)} ${f1(L * .75)} 0 ${f1(L)} C${f1(-L * .25)} ${f1(L * .75)} ${f1(-L * .25)} ${f1(L * .2)} 0 0Z" fill="url(#g-leaf)" opacity=".92"/>`;
+
+/* a hanging string (ladi) of pom-poms that sways from its top */
+function ladi(x, y, len, pal, seed, r = 7, tassel = true, still = false) {
+  const R = rng(seed); let s = `<path d="M0 0 V${f1(len)}" stroke="#C9A65A" stroke-width=".8" opacity=".8"/>`;
+  for (let yy = r; yy < len; yy += r * 1.65) { const k = 1 - (yy / len) * .25; s += `<g transform="translate(0 ${f1(yy)})">${pom(r * k, pickCol(pal, R), R)}</g>`; }
+  if (tassel) { const c = pickCol(pal, R); s += `<g transform="translate(0 ${f1(len + r * .7)})"><circle r="${f1(r * .22)}" fill="url(#gold)"/><g transform="translate(0 ${f1(r * 1.15)}) rotate(180) scale(${f1(r / 9)})">${bud(7, "rose")}</g><path d="M0 ${f1(r * 1.15)} l${f1(-r * .5)} ${f1(-r * .5)} M0 ${f1(r * 1.15)} l${f1(r * .5)} ${f1(-r * .5)}" stroke="#87A079" stroke-width="1" opacity=".8"/></g>`; }
+  const sw = REDUCED || still ? "" : ` class="swh" style="--dur:${f1(4 + R() * 3)}s;--del:${f1(-R() * 4)}s;--amp:${f1(1.5 + R() * 2)}deg"`;
+  return `<g transform="translate(${f1(x)} ${f1(y)})"><g${sw}>${s}</g></g>`;
+}
+/* a drooping swag of pom-poms between two points */
+function swag(x1, y1, x2, y2, sag, pal, seed, r = 8) {
+  const R = rng(seed), n = Math.max(4, Math.round(Math.hypot(x2 - x1, y2 - y1) / (r * 1.3))); let s = "";
+  const cx = (x1 + x2) / 2, cy = (y1 + y2) / 2 + sag;
+  for (let i = 0; i <= n; i++) { const t = i / n, u = 1 - t, x = u * u * x1 + 2 * u * t * cx + t * t * x2, y = u * u * y1 + 2 * u * t * cy + t * t * y2;
+    if (i % 3 === 1) s += mangoLeaf(x, y + r * .6, (R() - .5) * 40, r * 2.2);
+    s += `<g transform="translate(${f1(x)} ${f1(y)})">${pom(r * (.9 + R() * .2), pickCol(pal, R), R)}</g>`; }
+  return s;
+}
+/* the toran: mango leaves + swags + hanging ladis, across the full width */
+function toranSVG(w, pal, seed, opt = {}) {
+  const R = rng(seed), segs = opt.segs || 3, h = opt.h || 150, r = opt.r || 8, top = 10; let leaves = "", swags = "", ladis = "";
+  for (let x = 4; x < w; x += 15) leaves += mangoLeaf(x, top - 2, (R() - .5) * 26, 20 + R() * 8);
+  for (let i = 0; i < segs; i++) { const x1 = i * w / segs, x2 = (i + 1) * w / segs; swags += swag(x1, top + 4, x2, top + 4, opt.sag || 34, pal, seed + i * 7, r); }
+  for (let i = 0; i <= segs; i++) { const x = i * w / segs; ladis += ladi(Math.min(w - 8, Math.max(8, x)), top + 6, (opt.ladi || 70) + (i % 2 ? 26 : 0), pal, seed + 50 + i, r * .85, true, opt.still); }
+  for (let i = 0; i < segs; i++) { const x = (i + .5) * w / segs; ladis += ladi(x, top + 4 + (opt.sag || 34) * .5, (opt.ladi || 70) * .55, pal, seed + 80 + i, r * .75, true, opt.still); }
+  return `<svg class="${opt.cls || "toran"}" viewBox="0 0 ${w} ${h}" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMin meet"><path d="M0 ${top} H${w}" stroke="#B08D45" stroke-width="1.6"/>${leaves}${ladis}${swags}${[0, w].map(x => `<circle cx="${x}" cy="${top}" r="4" fill="url(#gold)"/>`).join("")}</svg>`;
+}
+
+/* fill an SVG path with flowers, sampled with Path2D so the shape reads as "made of flowers" */
+const probe = document.createElement("canvas").getContext("2d");
+function flowerFill(d, box, step, pal, seed, opt = {}) {
+  const R = rng(seed), path = new Path2D(d); let s = "";
+  const pts = [];
+  for (let y = box[1]; y <= box[3]; y += step) for (let x = box[0]; x <= box[2]; x += step) {
+    const px = x + (R() - .5) * step * .8, py = y + (R() - .5) * step * .8;
+    if (probe.isPointInPath(path, px, py)) pts.push([px, py]);
+  }
+  pts.sort((a, b) => a[1] - b[1]);
+  pts.forEach(([x, y]) => { const r = step * (.62 + R() * .28), col = opt.colAt ? opt.colAt(x, y, R) : pickCol(pal, R);
+    s += `<g transform="translate(${f1(x)} ${f1(y)})">${R() < (opt.blossomShare || .3) ? blossom(r * 1.05, col, R) : pom(r, col, R)}</g>`; });
+  return `<path d="${d}" fill="${opt.base || mix(pal[2], "#fff", .3)}"/>${s}`;
+}
+
+/* ---------- floral elephant (walks across the venue meadow) ---------- */
+function elephantSVG() {
+  const P = C.garland, gold = ["#F6C453", "#F2A93B", "#FFE08A", "#E89A2C"];
+  const body = "M40 62 C40 36 66 24 104 24 C128 24 144 28 154 34 C170 26 196 34 199 60 C201 74 196 86 190 94 C186 104 186 116 192 124 C196 129 192 134 186 131 C176 124 172 110 176 96 C170 100 162 102 156 100 C150 106 140 108 128 108 L66 108 C48 108 40 90 40 62Z";
+  const blanket = "M72 27 C92 22 120 22 142 30 L142 74 C120 82 92 82 72 74Z";
+  const ear = "M150 40 C136 44 130 64 137 82 C142 94 158 96 165 86 C171 72 168 50 158 42Z";
+  const leg = x => `M${x} 92 L${x} 132 Q${x + 9} 140 ${x + 18} 132 L${x + 18} 92Z`;
+  const legG = (x, cls, seed) => `<g class="leg ${cls}">${flowerFill(leg(x), [x, 92, x + 18, 138], 6.5, P, seed, { base: mix(P[3], "#fff", .2) })}<path d="M${x + 1} 134 Q${x + 9} 140 ${x + 17} 134" stroke="#C9A65A" stroke-width="2.2" fill="none"/></g>`;
+  return `<svg class="elephant" viewBox="20 18 190 128" role="img" aria-label="An elephant made of pink flowers, strolling across the garden">
+    <g class="el-body">
+      ${legG(54, "a", 1)}${legG(122, "b", 2)}
+      <path class="tail" d="M42 66 C30 74 28 88 31 98" stroke="${P[4]}" stroke-width="2.4" fill="none"/>
+      ${flowerFill(body, [40, 24, 200, 134], 8, P, 3, { colAt: (x, y, R) => pickCol(y > 80 ? P.slice(2, 6) : P.slice(0, 5), R) })}
+      ${flowerFill(blanket, [72, 22, 142, 82], 6, gold, 4, { base: "#F6D27A", blossomShare: .5 })}
+      <path d="M72 74 C92 82 120 82 142 74" stroke="url(#gold)" stroke-width="2" fill="none"/>
+      ${Array.from({ length: 9 }, (_, i) => { const x = 76 + i * 8; return `<path d="M${x} ${f1(76.5 + Math.sin(i / 8 * Math.PI) * 3)} v6" stroke="#C9A65A" stroke-width="1"/><circle cx="${x}" cy="${f1(83 + Math.sin(i / 8 * Math.PI) * 3)}" r="1.6" fill="url(#gold)"/>`; }).join("")}
+      <g class="ear">${flowerFill(ear, [130, 40, 172, 96], 6, P.slice(2, 7), 5)}</g>
+      <circle cx="183" cy="55" r="2.4" fill="#4A3B3A"/><circle cx="183.8" cy="54.2" r=".7" fill="#fff"/>
+      <path d="M184 92 C188 102 197 104 204 99" stroke="#FFFBF2" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+      <g transform="translate(186 40)">${blossom(5, "#F6C453", rng(9))}</g><g transform="translate(174 36)">${pom(3.5, "#F2A93B", rng(10))}</g><g transform="translate(196 47)">${pom(3, "#FFE08A", rng(11))}</g>
+      ${legG(76, "b", 6)}${legG(144, "a", 7)}
+    </g>
+  </svg>`;
+}
+
+/* ---------- floral peacock (fans its tail when it comes into view) ---------- */
+function peacockSVG() {
+  const P = C.garland, teal = ["#7FA99B", "#9CC0B2", "#6E978A", "#B6D3C7"], R = rng(21);
+  let tail = "";
+  const n = 15, ox = 150, oy = 150;
+  for (let i = 0; i < n; i++) { const a = -168 + i * (156 / (n - 1)), L = 92 + Math.sin(i / (n - 1) * Math.PI) * 26;
+    let f = `<path d="M0 0 L${f1(L)} 0" stroke="#8FA585" stroke-width="1.1"/>`;
+    for (let d = 16; d < L - 12; d += 9) f += `<ellipse cx="${d}" cy="-3.2" rx="4.4" ry="1.5" fill="${pickCol(teal, R)}" opacity=".85" transform="rotate(-24 ${d} -3.2)"/><ellipse cx="${d}" cy="3.2" rx="4.4" ry="1.5" fill="${pickCol(teal, R)}" opacity=".85" transform="rotate(24 ${d} 3.2)"/>`;
+    f += `<g transform="translate(${f1(L)} 0)"><ellipse rx="15" ry="11" fill="${pickCol(teal, R)}" opacity=".9"/><ellipse rx="10" ry="7.6" fill="url(#gold)"/><g>${pom(6.4, pickCol(P.slice(2, 6), R), R)}</g></g>`;
+    tail += `<g class="fth" style="--a:${f1(a)}deg;--d:${f1(i * .05)}s"><g>${f}</g></g>`; }
+  const body = "M156 168 C166 148 156 122 128 114 C120 102 118 88 116 78 C114 68 104 64 98 70 C94 76 100 82 106 88 C110 102 108 118 114 136 C118 152 132 170 156 168Z";
+  return `<svg class="peacock" viewBox="10 20 290 175" role="img" aria-label="A peacock made of flowers, fanning its floral tail">
+    <g class="pc-tail" transform="translate(${ox} ${oy})">${tail}</g>
+    <g class="pc-body">
+      <path d="M128 166 L124 186 M138 166 L140 186" stroke="url(#gold)" stroke-width="2"/>
+      ${flowerFill(body, [96, 64, 168, 170], 5.6, ["#C46A8A", "#B05A7E", "#D98AA4", "#9C5C8E", "#E7A8B3"], 22, { base: "#B9708E" })}
+      <path d="M99 73 L88 76 L99 79Z" fill="url(#gold)"/>
+      <circle cx="104" cy="73" r="2.2" fill="#fff"/><circle cx="103.6" cy="73" r="1.1" fill="#3B2A26"/>
+      ${[[-8, -16], [0, -18], [8, -15]].map(([dx, dy]) => `<path d="M108 66 L${108 + dx} ${66 + dy}" stroke="#9C7A38" stroke-width=".8"/><circle cx="${108 + dx}" cy="${66 + dy}" r="2" fill="url(#gold)"/>`).join("")}
+    </g>
+  </svg>`;
+}
+
+/* ---------- floral lovebirds (sit on the swing) ---------- */
+function lovebird(flip, col, seed) {
+  const R = rng(seed), dk = mix(col, "#7A2E44", .25);
+  const b = `<ellipse cx="0" cy="0" rx="13" ry="9" fill="${col}"/>${[[-9, -2, 4], [-3, 3, 4.5], [4, 2, 4], [-4, -4, 3.6], [2, -4, 3.4]].map(([x, y, r]) => `<g transform="translate(${x} ${y})">${pom(r, mix(col, "#fff", R() * .3), R)}</g>`).join("")}
+    <path d="M-12 1 C-22 -1 -26 6 -28 10 C-22 8 -18 8 -12 5Z" fill="${dk}"/>
+    <ellipse cx="-2" cy="-1" rx="7" ry="4.2" fill="${dk}" opacity=".6" transform="rotate(-18)"/>
+    <circle cx="11" cy="-7" r="6.6" fill="${col}"/><circle cx="11" cy="-7" r="6.6" fill="url(#ppShade)"/>
+    <path d="M16.5 -8 L22 -6 L16.5 -4.4Z" fill="url(#gold)"/><circle cx="13" cy="-8.6" r="1.2" fill="#3B2A26"/>`;
+  return `<g transform="scale(${flip ? -1 : 1} 1)">${b}</g>`;
+}
+
+/* ---------- the swing: a flower bench on flower ropes, swung by scrolling ---------- */
+function swingSVG() {
+  const P = C.garland, R = rng(31), w = 300; let bough = "", rope = "";
+  for (let x = 10; x < w - 6; x += 12) bough += mangoLeaf(x, 30 + Math.sin(x / 40) * 3, (R() - .5) * 60, 16 + R() * 8);
+  bough += swag(6, 30, w - 6, 30, 6, P, 33, 7.5);
+  [92, 208].forEach((x, i) => { rope += `<path d="M${x} 32 L${x} 216" stroke="url(#rope)" stroke-width="2.2"/>`;
+    for (let y = 44; y < 212; y += 12) rope += `<g transform="translate(${x + (Math.floor(y / 12) % 2 ? 3.5 : -3.5)} ${y})">${(Math.floor(y / 12) % 3 ? pom : blossom)(8, pickCol(P, R), R)}</g>`;
+    for (let y = 54; y < 214; y += 30) rope += mangoLeaf(x + (y % 60 ? 6 : -6), y, y % 60 ? -70 : 70, 15); });
+  let seat = `<rect x="70" y="214" width="160" height="12" rx="6" fill="#E8D3B0"/>`;
+  for (let x = 74; x <= 226; x += 10) seat += `<g transform="translate(${x} ${219 + Math.sin(x) * 1.5})">${pom(8, pickCol(P, R), R)}</g>`;
+  for (let x = 84; x <= 216; x += 22) seat += ladi(x, 228, 20 + (x % 44 ? 10 : 0), P, 300 + x, 5, false);
+  return `<svg class="swing" viewBox="0 0 ${w} 290" role="img" aria-label="A swing woven from flowers, with two floral lovebirds, swaying as you scroll">
+    <g class="swing-arm" style="transform-origin:150px 32px">${rope}${seat}
+      <g transform="translate(124 196) scale(1.45)">${lovebird(false, "#F2B3C3", 41)}</g>
+      <g transform="translate(176 196) scale(1.45)">${lovebird(true, "#EA97AD", 42)}</g>
+      <g transform="translate(150 178)">${blossom(6, "#DF7E98", rng(43))}</g>
+    </g>
+    <path d="M0 30 C60 24 120 34 150 30 S260 24 300 30" stroke="#7A6248" stroke-width="5" stroke-linecap="round" fill="none"/>
+    ${bough}
+  </svg>`;
+}
+function swingPhysics() {
+  const arm = $(".swing-arm"); if (!arm || REDUCED) return;
+  let th = 0, w = 0, lastY = scrollY, last = performance.now(), visible = false, raf = 0;
+  const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf) raf = requestAnimationFrame(step); }, { rootMargin: "100px" });
+  io.observe(arm.closest("svg"));
+  function step(t) {
+    const dt = Math.min(.05, (t - last) / 1000); last = t;
+    const dy = scrollY - lastY; lastY = scrollY;
+    const idle = Math.sin(t / 1100) * .035;
+    w += (-11 * (th - idle) - 1.1 * w) * dt + Math.max(-40, Math.min(40, dy)) * .0045;
+    th = Math.max(-.42, Math.min(.42, th + w * dt));
+    arm.style.transform = `rotate(${(th / DEG).toFixed(2)}deg)`;
+    raf = visible ? requestAnimationFrame(step) : 0;
+  }
+}
+
+/* ---------- butterflies made of petals, wandering over the page ---------- */
+function butterflies() {
+  if (REDUCED) return;
+  const layer = document.createElement("div"); layer.id = "flutter"; layer.setAttribute("aria-hidden", "true"); document.body.appendChild(layer);
+  const cols = [["#F2B3C3", "#DF7E98"], ["#D9C2EC", "#B98ED1"], ["#F9CDB0", "#EA97AD"], ["#FBE3E8", "#E9A6B4"]], n = innerWidth < 600 ? 3 : 5, bs = [];
+  for (let i = 0; i < n; i++) {
+    const [a, b] = cols[i % cols.length], el = document.createElement("div"); el.className = "bfly";
+    el.innerHTML = `<svg viewBox="-20 -16 40 32"><g class="wl"><path d="M0 0 C-6 -14 -20 -16 -18 -4 C-17 2 -8 3 0 0Z" fill="${a}" stroke="${b}" stroke-width=".6"/><path d="M0 1 C-6 3 -14 8 -10 13 C-6 16 -2 8 0 2Z" fill="${b}" opacity=".9"/><circle cx="-10" cy="-6" r="2" fill="#fff" opacity=".6"/></g><g class="wr"><path d="M0 0 C6 -14 20 -16 18 -4 C17 2 8 3 0 0Z" fill="${a}" stroke="${b}" stroke-width=".6"/><path d="M0 1 C6 3 14 8 10 13 C6 16 2 8 0 2Z" fill="${b}" opacity=".9"/><circle cx="10" cy="-6" r="2" fill="#fff" opacity=".6"/></g><ellipse rx="1.3" ry="7" fill="#6E5A57"/><path d="M0 -6 C-2 -10 -4 -12 -5 -13 M0 -6 C2 -10 4 -12 5 -13" stroke="#6E5A57" stroke-width=".6" fill="none"/></svg>`;
+    el.style.setProperty("--flap", (.22 + Math.random() * .12).toFixed(2) + "s");
+    layer.appendChild(el);
+    bs.push({ el, x: Math.random() * innerWidth, y: Math.random() * innerHeight, a: Math.random() * 6.28, v: 26 + Math.random() * 18, s: .8 + Math.random() * .5 });
+  }
+  let last = performance.now(), raf = 0;
+  const frame = t => {
+    const dt = Math.min(.05, (t - last) / 1000); last = t; const W = innerWidth, H = innerHeight;
+    bs.forEach(b => { b.a += (Math.random() - .5) * 2.4 * dt + Math.sin(t / 900 + b.v) * .6 * dt;
+      b.x += Math.cos(b.a) * b.v * dt; b.y += Math.sin(b.a) * b.v * dt + Math.sin(t / 260 + b.v) * .35;
+      if (b.x < -30) b.x = W + 20; if (b.x > W + 30) b.x = -20; if (b.y < 40) b.a = Math.abs(b.a); if (b.y > H - 40) b.a = -Math.abs(b.a);
+      b.el.style.transform = `translate3d(${b.x.toFixed(1)}px,${b.y.toFixed(1)}px,0) rotate(${(Math.cos(b.a) * 18).toFixed(1)}deg) scale(${b.s})`; });
+    raf = requestAnimationFrame(frame);
+  };
+  raf = requestAnimationFrame(frame);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) cancelAnimationFrame(raf); else { last = performance.now(); raf = requestAnimationFrame(frame); } });
+}
+
+/* =====================================================================
    Page sections
    ===================================================================== */
 const C = CONFIG, B = C.couple.bride, G = C.couple.groom;
@@ -843,11 +1148,16 @@ function venueScene() {
   </svg>`;
 }
 
+const ART = C.images;
+const artImg = (src, cls, alt = "", extra = "") => `<img class="${cls}" src="${esc(src)}" alt="${esc(alt)}" decoding="async" ${extra}>`;
+function onArtError(el, fn) { (el.tagName === "IMG" ? [el] : $$("img", el)).forEach(i => { if (i.complete && !i.naturalWidth && i.src) fn(); else i.addEventListener("error", () => fn(), { once: true }); }); }
+
 function build() {
   const ev = C.events.map((e, i) => {
     const d = fmtDate(e.date, e.time);
-    return `<article class="event rv" style="--tint:${e.tint};--accent-ink:${e.ink}" aria-labelledby="ev-${i}">
-      ${eventArch(e, i)}
+    return `<article class="event rv" style="--tint:${e.tint};--accent-ink:${e.ink};--accent:${e.colour}" aria-labelledby="ev-${i}">
+      <div class="ev-top">${toranSVG(320, e.garland || C.garland, 100 + i * 13, { segs: 2, h: 100, ladi: 34, sag: 18, r: 9, cls: "ev-toran", still: true })}
+        <div class="ev-art" id="ev-art-${i}"><div class="ev-wash"></div>${artImg(e.image, "ev-img", `${e.flower}, painted in watercolour`)}</div></div>
       <p class="tag">${esc(e.name)} · ${esc(e.flower)}</p>
       <h3 id="ev-${i}" class="script">${esc(e.name)}</h3>
       ${e.subtitle ? `<p class="label" style="margin-top:-6px;color:var(--accent-ink)">${esc(e.subtitle)}</p>` : ""}
@@ -874,9 +1184,14 @@ function build() {
 
   $("#invite").innerHTML = `
   <section class="sec hero" id="hero" aria-label="${esc(B.first)} and ${esc(G.first)} are getting married">
-    ${useSym("bouquet", "corner tl", "0 0 300 300", 'data-par="0.18"')}${useSym("bouquet2", "corner tr", "0 0 300 300", 'data-par="0.18"')}
+    ${toranSVG(400, C.garland, 7, { segs: 3, h: 160, ladi: 60, sag: 30, r: 10.5 })}
+    ${artImg(ART.cornerTL.src, "corner tl", "", 'data-par="0.12"')}${artImg(ART.cornerTL.src, "corner tr", "", 'data-par="0.12"')}
     <div class="blessing rv"><div class="dev" lang="sa">${esc(C.blessing.line)}</div><span class="sub">${esc(C.blessing.sub)}</span></div>
-    <div class="arch-wrap rv" style="--d:.2s">${heroArch()}</div>
+    <div class="hero-art rv" style="--d:.2s" id="heroArt">
+      <div class="sky"></div><div class="ground"></div>
+      ${artImg(ART.couple.src, "couple-img" + (ART.couple.fit === "cover" ? " cover" : ""), `${B.first} in a blush lehenga and ${G.first} in an ivory sherwani and rose safa, with flower garlands`)}
+      ${artImg(ART.arch.src, "arch-img", "")}
+    </div>
     <h1 class="names script rv" style="--d:.35s">${esc(B.first)} <span class="amp">&amp;</span> ${esc(G.first)}</h1>
     <p class="getting rv" style="--d:.45s">${esc(C.hero.tagline)}</p>
     <div class="date-line rule rv" style="--d:.55s"><span>${esc(C.hero.dateText)} <i>|</i> ${esc(C.hero.place)}</span></div>
@@ -887,16 +1202,19 @@ function build() {
     <span class="label rv">Two families · one garden</span>
     <h2 class="h2 rv" id="couple-h">The Bride &amp; The Groom</h2>
     <p class="invitation-line rv">${esc(C.invitationLine)}</p>
-    <div class="pair">
-      <div class="person rv">${portraitFrame("bride", 61, false)}
-        <h3 class="script">${esc(B.full)}</h3><span class="of">${esc(B.relation)}</span><p class="parents">${esc(B.parents)}</p><span class="city">${esc(B.city)}</span></div>
-      <div class="mid">${wreathSVG("", 100, 17, 0, monoText(70, 4))}</div>
-      <div class="person rv" style="--d:.15s">${portraitFrame("groom", 62, true)}
-        <h3 class="script">${esc(G.full)}</h3><span class="of">${esc(G.relation)}</span><p class="parents">${esc(G.parents)}</p><span class="city">${esc(G.city)}</span></div>
+    <div class="portrait rv" id="portrait">
+      <div class="pframe">${artImg(ART.portrait.src, "p-img", `Portrait of ${B.full} and ${G.full}`)}</div>
+      ${artImg(ART.cornerTL.src, "pc tl")}${artImg(ART.cornerBR.src, "pc br")}
+    </div>
+    <div class="mono-mid rv">${wreathSVG("", 100, 17, 0, monoText(70, 4))}</div>
+    <div class="pair names-only">
+      <div class="person rv"><h3 class="script">${esc(B.full)}</h3><span class="of">${esc(B.relation)}</span><p class="parents">${esc(B.parents)}</p><span class="city">${esc(B.city)}</span></div>
+      <div class="person rv" style="--d:.15s"><h3 class="script">${esc(G.full)}</h3><span class="of">${esc(G.relation)}</span><p class="parents">${esc(G.parents)}</p><span class="city">${esc(G.city)}</span></div>
     </div>
   </section>
 
   <section class="sec countdown" id="countdown" aria-labelledby="count-h">
+    <div class="swing-wrap rv">${swingSVG()}</div>
     <span class="label rv">${esc(C.countdown.label)}</span>
     <h2 class="h2 rv" id="count-h">${esc(C.countdown.title)}</h2>
     ${divider()}
@@ -917,14 +1235,14 @@ function build() {
     <span class="label rv">${esc(C.eventsIntro.label)}</span>
     <h2 class="h2 rv" id="events-h">${esc(C.eventsIntro.title)}</h2>
     <p class="lede rv">${esc(C.eventsIntro.sub)}</p>
-    ${divider()}
+    <div class="peacock-wrap" id="peacock">${peacockSVG()}</div>
     <div class="events">${ev}</div>
   </section>
 
   <section class="sec venue" id="venue" aria-labelledby="venue-h">
     <span class="label rv">${esc(C.venue.label)}</span>
     <h2 class="h2 rv" id="venue-h">${esc(C.venue.title)}</h2>
-    <div class="venue-scene rv">${venueScene()}</div>
+    <div class="venue-scene rv">${venueScene()}<div class="walker">${elephantSVG()}</div></div>
     <p class="venue-name rv">${esc(C.venue.name)}</p>
     <p class="venue-addr rv">${esc(C.venue.address)}</p>
     <p class="lede rv" style="margin-top:0;margin-bottom:24px">${esc(C.venue.note)}</p>
@@ -933,7 +1251,7 @@ function build() {
 
   <section class="sec rsvp" id="rsvp" aria-labelledby="rsvp-h">
     <div class="rsvp-card rv">
-      ${useSym("bouquet", "cb tl")}${useSym("bouquet2", "cb br")}
+      ${artImg(ART.cornerTL.src, "cb tl")}${artImg(ART.cornerBR.src, "cb br")}
       <span class="label">${esc(rsvp.label)}</span>
       <h2 class="h2" id="rsvp-h">${esc(rsvp.title)}</h2>
       <p class="by">Kindly respond by<br><b>${esc(rsvp.by)}</b></p>
@@ -945,12 +1263,10 @@ function build() {
   </section>
 
   <section class="sec signoff" id="signoff" aria-label="Sign-off">
-    <div class="sign-wreath rv">
-      <svg viewBox="-130 -130 260 260" role="img" aria-label="${esc(B.first)} and ${esc(G.first)} inside a floral wreath">
-        <circle r="92" fill="url(#sky)"/>
-        <g id="signCouple"><use href="#s-couple" x="-118" y="-92" width="236" height="180"/></g>
-        ${wreathArt(100, 23, 1)}
-      </svg>
+    ${toranSVG(400, C.garland, 77, { segs: 3, h: 130, ladi: 46, sag: 24, r: 9.5, cls: "toran sign-toran" })}
+    <div class="sign-art rv" id="signArt">
+      <div class="disc"></div>${artImg(ART.couple.src, "sc", `${B.first} and ${G.first}`)}
+      ${artImg(ART.cornerTL.src, "pc tl")}${artImg(ART.cornerBR.src, "pc br")}
     </div>
     <p class="incomplete script rv">${esc(C.signoff.line)}</p>
     <p class="hashtag foil-dark rv">${esc(C.hashtag)}</p>
@@ -985,9 +1301,16 @@ function doorArt(seed, mirror) {
   </svg>`;
 }
 function buildOpener() {
+  if (!ART.cornerTL || !ART.cornerTL.src) { /* no painted bouquets configured: keep the SVG doors */ }
   const op = $("#opener");
   const line = GUEST ? `<span class="dear">Dear ${esc(GUEST)},</span>${esc(C.opener.guestLine)}` : esc(C.opener.line);
-  op.innerHTML = `<div class="door l">${doorArt(301, false)}</div><div class="door r">${doorArt(302, true)}</div>
+  const seam = seed => `<svg class="seam" viewBox="0 0 40 1000" preserveAspectRatio="xMidYMin slice" aria-hidden="true">${ladi(20, 0, 990, C.garland, seed, 12, false, true)}</svg>`;
+  const doorTop = seed => toranSVG(240, C.garland, seed, { segs: 2, h: 130, ladi: 50, sag: 22, r: 10, cls: "door-toran" });
+  const sprinkle = seed => { const R = rng(seed); let g = ""; for (let i = 0; i < 46; i++) { const x = 20 + R() * 200, y = 150 + R() * 560, col = pickCol(C.confetti, R);
+      g += `<g transform="translate(${f1(x)} ${f1(y)}) rotate(${f1(R() * 72)})" opacity="${f1(.55 + R() * .4)}">${R() < .5 ? blossom(5 + R() * 4, col, R) : `<ellipse rx="${f1(2 + R() * 2)}" ry="${f1(4 + R() * 3)}" fill="${col}"/>`}</g>`; }
+    return `<svg class="sprinkle" viewBox="0 0 240 840" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${g}</svg>`; };
+  op.innerHTML = `<div class="door l"><div class="panel"></div>${sprinkle(501)}${doorTop(401)}${artImg(ART.cornerTL.src, "dt")}${artImg(ART.cornerBR.src, "db")}${seam(411)}</div>
+    <div class="door r"><div class="panel"></div>${sprinkle(502)}${doorTop(402)}${artImg(ART.cornerTL.src, "dt")}${artImg(ART.cornerBR.src, "db")}${seam(412)}</div>
     <div class="invite-tag"><span class="label">${esc(B.first)} &amp; ${esc(G.first)} · ${esc(C.hero.dateText)}</span><p>${line}</p></div>
     <div class="seal"><div class="disc"></div>${wreathSVG("wr", 100, 5, 1, "", 128)}
       <div class="mono"><b class="foil-dark">${esc(C.couple.monogram[0])} <span style="font:inherit;letter-spacing:0;padding:0;animation:none;color:#C98A8F;font-size:.55em;vertical-align:.2em">❀</span> ${esc(C.couple.monogram[1])}</b><span>${esc(C.opener.tap)}</span></div></div>`;
@@ -1011,7 +1334,7 @@ function revealHero() { $$("#hero .rv").forEach(el => el.classList.add("in")); }
 /* ---------- backdrop ---------- */
 function buildBackdrop() {
   if (innerWidth < 560) return;
-  $("#backdrop").innerHTML = useSym("bouquet", "b1") + useSym("bouquet2", "b2") + useSym("bouquet2", "b3") + useSym("bouquet", "b4");
+  $("#backdrop").innerHTML = artImg(ART.cornerTL.src, "b1") + artImg(ART.cornerBR.src, "b2") + artImg(ART.cornerTL.src, "b3") + artImg(ART.cornerBR.src, "b4");
 }
 
 /* ---------- image slots (fall back to SVG when a file is missing) ---------- */
@@ -1019,21 +1342,18 @@ function tryImage(src, ok) { if (!src) return; const im = new Image(); im.onload
 const SVGNS = "http://www.w3.org/2000/svg";
 function svgImage(attrs) { const el = document.createElementNS(SVGNS, "image"); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; }
 function imageSlots() {
-  const I = C.images;
-  tryImage(I.couple && I.couple.src, src => {
-    const g = $("#heroCouple"), cover = I.couple.fit === "cover";
-    g.replaceChildren(svgImage(cover ? { href: src, x: 40, y: 50, width: 320, height: 520, preserveAspectRatio: "xMidYMid slice" } : { href: src, x: 46, y: 70, width: 308, height: 480, preserveAspectRatio: "xMidYMax meet" }));
-    const s = $("#signCouple"); s.replaceChildren(svgImage({ href: src, x: -92, y: -92, width: 184, height: 184, preserveAspectRatio: cover ? "xMidYMid slice" : "xMidYMax meet", "clip-path": "circle(92px at 92px 92px)" }));
-  });
-  ["bride", "groom"].forEach(w => tryImage(I[w] && I[w].src, src => { const g = $(`#portrait-${w}`); g.replaceChildren(svgImage({ href: src, x: 18, y: 20, width: 124, height: 168, preserveAspectRatio: "xMidYMid slice" })); }));
-  C.events.forEach((e, i) => tryImage(e.image, src => { const g = $(`#ev-art-${i}`); g.replaceChildren(svgImage({ href: src, x: 32, y: 24, width: 256, height: 276, preserveAspectRatio: "xMidYMid slice" })); }));
+  const ha = $("#heroArt"); onArtError(ha, () => { if (!ha.dataset.fb) { ha.dataset.fb = 1; ha.className = "arch-wrap rv in"; ha.innerHTML = heroArch(); } });
+  const pt = $("#portrait"); onArtError($(".p-img", pt), () => { pt.outerHTML = `<div class="pair">${["bride", "groom"].map((w, i) => `<div class="person">${portraitFrame(w, 61 + i, !!i)}</div>`).join("")}</div>`; reveals(); });
+  const sa = $("#signArt"); onArtError($(".sc", sa), () => { sa.innerHTML = `<svg viewBox="-130 -130 260 260" role="img" aria-label="${esc(B.first)} and ${esc(G.first)}"><circle r="92" fill="url(#sky)"/><use href="#s-couple" x="-118" y="-92" width="236" height="180"/>${wreathArt(100, 23, 1)}</svg>`; });
+  C.events.forEach((e, i) => { const box = $(`#ev-art-${i}`); onArtError($(".ev-img", box), () => { box.innerHTML = eventArch(e, i); }); });
+  $$("img.corner, img.pc, img.cb, img.dt, img.db").forEach(im => im.addEventListener("error", () => im.remove(), { once: true }));
 }
 
 /* ---------- reveal on scroll ---------- */
 function reveals() {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: .12 });
   $$(".rv").forEach(el => { if (!el.closest("#hero")) io.observe(el); });
-  $$(".sign-wreath svg, #wreaths svg, .mid svg").forEach(el => el.classList.add("bloom-frame"));
+  $$(".sign-wreath svg, #wreaths svg, .mid svg, .mono-mid svg").forEach(el => el.classList.add("bloom-frame"));
   const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io2.unobserve(e.target); } }), { threshold: .3 });
   $$(".bloom-frame, .chapter").forEach(el => io2.observe(el));
 }
@@ -1112,9 +1432,15 @@ const Petals = (() => {
     const g = x.createLinearGradient(0, 4, 0, 44); g.addColorStop(0, a); g.addColorStop(1, b); x.fillStyle = g; x.translate(24, 44);
     x.beginPath(); x.moveTo(0, 0); x.bezierCurveTo(-20, -8, -18, -34, -4, -40); x.quadraticCurveTo(0, -36, 4, -40); x.bezierCurveTo(18, -34, 20, -8, 0, 0); x.fill();
     x.globalAlpha = .35; x.strokeStyle = b; x.lineWidth = 1; x.stroke(); return c; });
-  const target = () => innerWidth < 600 ? 12 : 24;
+  const blooms = C.confetti.map(col => { const c = document.createElement("canvas"); c.width = c.height = 48; const x = c.getContext("2d"); x.translate(24, 24);
+    const dk = mix(col, "#7A2E44", .28);
+    for (let i = 0; i < 5; i++) { x.save(); x.rotate(i * Math.PI * 2 / 5); x.beginPath(); x.ellipse(0, -10, 7.5, 11, 0, 0, Math.PI * 2);
+      const g = x.createLinearGradient(0, -21, 0, 0); g.addColorStop(0, mix(col, "#fff", .35)); g.addColorStop(1, col); x.fillStyle = g; x.fill(); x.globalAlpha = .45; x.strokeStyle = dk; x.lineWidth = .8; x.stroke(); x.restore(); }
+    x.beginPath(); x.arc(0, 0, 4, 0, 7); x.fillStyle = col === "#FFE08A" ? "#E8962A" : "#E9C46A"; x.fill(); return c; });
+  sprites.push(...blooms);
+  const target = () => innerWidth < 600 ? 16 : 28;
   const resize = () => { dpr = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
-  const make = (x, y, vx, vy, life) => ({ x, y, vx, vy, s: 9 + Math.random() * 9, r: Math.random() * 6.28, vr: (Math.random() - .5) * 1.4, f: Math.random() * 6.28, vf: 1 + Math.random() * 2, sw: Math.random() * 6.28, img: sprites[(Math.random() * sprites.length) | 0], life, age: 0, a: .55 + Math.random() * .35 });
+  const make = (x, y, vx, vy, life) => ({ x, y, vx, vy, s: 10 + Math.random() * 10, r: Math.random() * 6.28, vr: (Math.random() - .5) * 1.4, f: Math.random() * 6.28, vf: 1 + Math.random() * 2, sw: Math.random() * 6.28, img: sprites[(Math.random() * sprites.length) | 0], life, age: 0, a: .55 + Math.random() * .35 });
   const spawn = top => make(Math.random() * W, top ? -20 : Math.random() * H, 0, 18 + Math.random() * 22, 0);
   const frame = t => {
     const dt = Math.min(.05, (t - last) / 1000 || .016); last = t; ctx.clearRect(0, 0, W, H);
@@ -1136,7 +1462,7 @@ const Petals = (() => {
   return {
     active: false,
     begin() { if (REDUCED) return; this.active = true; for (let i = 0; i < target() * .6; i++) list.push(spawn(false)); start(); },
-    burst() { if (REDUCED) return; const cx = W / 2, cy = H * .52; for (let i = 0; i < (W < 600 ? 34 : 50); i++) { const a = Math.random() * 6.28, sp = 90 + Math.random() * 260; list.push(make(cx, cy, Math.cos(a) * sp, Math.sin(a) * sp - 120, 2.6 + Math.random() * 1.8)); } this.begin(); }
+    burst(cx = W / 2, cy = H * .52, n = W < 600 ? 40 : 60) { if (REDUCED) return; for (let i = 0; i < n; i++) { const a = Math.random() * 6.28, sp = 90 + Math.random() * 280; list.push(make(cx, cy, Math.cos(a) * sp, Math.sin(a) * sp - 140, 2.8 + Math.random() * 2)); } if (!this.active) this.begin(); }
   };
 })();
 
@@ -1228,9 +1554,11 @@ function buildOG() {
     <defs><linearGradient id="ogbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF1EC"/><stop offset=".5" stop-color="#FBF6EF"/><stop offset="1" stop-color="#F4E1DC"/></linearGradient></defs>
     <rect width="1200" height="630" fill="url(#ogbg)"/>
     <circle cx="330" cy="315" r="250" fill="#F2D4D0" opacity=".28" filter="url(#wash)"/>
-    <use href="#bouquet" x="-70" y="-70" width="380" height="380"/>
-    <use href="#bouquet2" x="-70" y="-70" width="380" height="380" transform="rotate(180 600 315)"/>
-    <g transform="translate(330 315)"><circle r="104" fill="#FFFDF9"/><circle r="98" fill="none" stroke="url(#gold)" stroke-width="1.2"/>${wreathArt(120, 5, 1)}${monoText(68, 4)}</g>
+    <image href="${ART.cornerTL.src}" x="-40" y="-30" width="330" height="334"/>
+    <image href="${ART.cornerBR.src}" x="900" y="300" width="330" height="354"/>
+    <ellipse cx="330" cy="340" rx="150" ry="230" fill="#F7DCD8" opacity=".75"/>
+    <image href="${ART.couple.src}" x="215" y="130" width="230" height="372" preserveAspectRatio="xMidYMax meet"/>
+    <image href="${ART.arch.src}" x="130" y="40" width="400" height="533"/>
     <g font-family="'Cormorant Garamond', Georgia, serif" text-anchor="middle">
       <text x="820" y="200" font-family="Montserrat, sans-serif" font-size="17" letter-spacing="6" fill="#4F6B4A">TOGETHER WITH THEIR FAMILIES</text>
       <text x="820" y="320" font-family="Parisienne, cursive" font-size="118" fill="#A4626B">Ira <tspan fill="#C9A65A" font-size="80">&amp;</tspan> Neel</text>
@@ -1248,6 +1576,10 @@ if (params.has("og")) { buildOG(); }
 else {
   build(); buildBackdrop(); buildOpener(); imageSlots(); reveals(); countdown(); calendarButtons();
   const su = storyVine(); scrollLoop(su);
+  swingPhysics(); butterflies();
+  const pk = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { $(".peacock").classList.add("in"); pk.disconnect(); } }), { threshold: .35 }); pk.observe($("#peacock"));
+  const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const r = $("#signArt").getBoundingClientRect(); Petals.burst(r.left + r.width / 2, r.top + r.height / 2, 50); so.disconnect(); } }), { threshold: .6 }); so.observe($("#signArt"));
+  $("#rsvpBtn").addEventListener("click", e => Petals.burst(e.clientX, e.clientY, 46));
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 }
 </script>
