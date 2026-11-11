@@ -19,7 +19,14 @@ WhatsApp can't run JavaScript, so update those by hand for a new couple.
 
 ## Personalised guest links
 
-Add `?guest=` to the link. The name appears on the opening doors and in the WhatsA## Swap in your own photos or artwork
+Add `?guest=` to the link. The name appears on the opening doors and in the WhatsApp RSVP message.
+
+- https://choprakhushee.github.io/ira-weds-neel/?guest=Sharma%20Family
+- https://choprakhushee.github.io/ira-weds-neel/?guest=Ananya%20%26%20Rohan
+
+Use `%20` for spaces and `%26` for `&`.
+
+## Swap in your own photos or artwork
 
 All painted images are listed in `CONFIG.images` (and each event's `image`) near the top of `index.html`.
 Replace a file in `assets/art/` with your own using the same name, or point the path at a new file.
@@ -38,11 +45,6 @@ Transparent PNG or WebP both work. For a normal photo of the couple (not a cut-o
 The flower garlands, confetti and animals take their colours from `CONFIG.garland`, `CONFIG.confetti`
 and each event's `garland` list.
 
-dding.png`, `reception.png` | Inside each event's arch | 900 × 1000 |
-
-For a normal photo of the couple (not a cut-out), set `images.couple.fit` to `"cover"` in `CONFIG`.
-Keep each file under about 400 KB.
-
 ## Open it locally
 
 ```
@@ -53,8 +55,8 @@ Then open http://localhost:8000/
 
 ## Redraw the share image
 
-`index.html?og` draws the 1200 × 630 share card from `CONFIG`. To save it as `og-image.png` and `og-image.svg`
-(needs Node and Playwright):
+`index.html?og` draws the 1200 × 630 share card from `CONFIG` and the painted art. To save it as
+`og-image.png` and `og-image.svg` (needs Node and Playwright):
 
 ```
 python3 -m http.server 8765
