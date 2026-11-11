@@ -38,6 +38,7 @@ Replace a file in `assets/art/` with your own using the same name, or point the 
 | `assets/art/arch.webp` | The floral arch around the couple | about 1000 × 1333, transparent, open centre |
 | `assets/art/bouquet-tl.webp`, `bouquet-br.webp` | Corner bouquets on the doors, hero, portrait, RSVP card and desktop backdrop | about 760 × 780, transparent |
 | `assets/art/jasmine.webp`, `marigold.webp`, `orchid.webp`, `rose.webp`, `lily.webp` | Each event card | about 640 wide, transparent |
+| `assets/art/bfly-pink-l.webp` / `-r.webp` (also `peach`, `lilac`) | The flying butterflies, as left and right wing halves split down the body | about 120 × 160 each, transparent |
 
 Transparent PNG or WebP both work. For a normal photo of the couple (not a cut-out), set
 `images.couple.fit` to `"cover"`. Keep each file under about 400 KB.

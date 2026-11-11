@@ -107,7 +107,10 @@ a{color:inherit}
 #opener .seal{position:absolute;left:50%;top:54%;width:min(64vw,250px);aspect-ratio:1;transform:translate(-50%,-50%);transition:opacity .7s ease,transform 1s cubic-bezier(.4,0,.2,1)}
 #opener .seal .disc{position:absolute;inset:19%;border-radius:50%;background:radial-gradient(circle,#FFFDF9 55%,#F8EDE6);box-shadow:0 10px 30px -10px rgba(110,60,60,.5),inset 0 0 0 1px rgba(201,166,90,.6),inset 0 0 0 4px #FFFDF9,inset 0 0 0 5px rgba(201,166,90,.35)}
 #opener .seal svg.wr{position:absolute;inset:0;width:100%;height:100%}
-#opener .seal .mono{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:2%}
+#opener .seal .mono{position:absolute;inset:20%;display:flex;align-items:center;justify-content:center}
+#opener .seal .mono svg{width:100%;height:100%}
+#opener .tap{position:absolute;left:50%;top:calc(54% + min(32vw,125px) + 8px);transform:translateX(-50%);padding:8px 16px;border-radius:999px;background:rgba(255,253,249,.92);box-shadow:0 6px 18px -8px rgba(110,60,60,.45),inset 0 0 0 1px rgba(201,166,90,.5);font:500 9.5px/1 Montserrat,sans-serif;letter-spacing:.3em;padding-left:calc(16px + .3em);text-transform:uppercase;color:var(--leaf);transition:opacity .6s}
+#opener.open .tap{opacity:0}
 #opener .mono b{font:400 clamp(40px,12vw,50px)/1.25 Parisienne,cursive;padding:0 .15em}
 #opener .mono span{margin-top:2px;font:500 9.5px/1 Montserrat,sans-serif;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase;color:var(--leaf);animation:breathe 2.8s ease-in-out infinite}
 @keyframes breathe{50%{opacity:.45}}
@@ -263,7 +266,7 @@ a{color:inherit}
 .portrait .pc.tl{left:-27%;top:-8%}
 .portrait .pc.br{right:-24%;bottom:-16%}
 .pair.names-only{margin-top:6px;grid-template-columns:1fr 1fr}
-.mono-mid{width:74px;height:74px;margin:30px auto 0}
+.mono-mid{width:112px;height:112px;margin:30px auto 0}
 .mono-mid svg{width:100%;height:100%;overflow:visible}
 
 .swing-wrap{width:min(92%,340px);margin:-50px auto 18px}
@@ -333,13 +336,12 @@ a{color:inherit}
 #backdrop .b4{left:-4vw;bottom:-6vh;transform:scaleX(-1);width:min(24vw,380px);opacity:.7}
 @media (max-width:560px){#backdrop img{display:none}}
 
-#flutter{position:fixed;inset:0;z-index:45;pointer-events:none;overflow:hidden}
-.bfly{position:absolute;left:0;top:0;width:30px;height:24px;margin:-12px 0 0 -15px}
-.bfly svg{width:100%;height:100%;overflow:visible}
-.bfly .wl,.bfly .wr{transform-box:fill-box;animation:flapw var(--flap,.28s) ease-in-out infinite alternate}
-.bfly .wl{transform-origin:100% 50%}
-.bfly .wr{transform-origin:0 50%}
-@keyframes flapw{to{transform:scaleX(.25)}}
+#flutter{position:fixed;inset:0;z-index:52;pointer-events:none;overflow:hidden}
+.bfly{position:absolute;left:0;top:0;width:40px;will-change:transform;filter:drop-shadow(0 6px 5px rgba(80,40,40,.22))}
+.bf-in{display:flex;perspective:140px}
+.bf-in img{width:50%;height:auto;display:block;backface-visibility:visible}
+.bf-in .wl{transform-origin:100% 50%}
+.bf-in .wr{transform-origin:0 50%}
 
 @media (prefers-reduced-motion:reduce){
   .walker,.elephant *,.peacock .pc-body{animation:none!important}
@@ -465,7 +467,12 @@ const CONFIG = {
     portrait: { src: "assets/art/couple-bust.webp" },              // head-and-shoulders, for The Couple section
     arch:     { src: "assets/art/arch.webp" },                     // floral arch around the couple in the hero
     cornerTL: { src: "assets/art/bouquet-tl.webp" },               // corner bouquets used across the page
-    cornerBR: { src: "assets/art/bouquet-br.webp" }
+    cornerBR: { src: "assets/art/bouquet-br.webp" },
+    butterflies: [                                               // each butterfly as left and right wing halves
+      { l: "assets/art/bfly-pink-l.webp",  r: "assets/art/bfly-pink-r.webp" },
+      { l: "assets/art/bfly-peach-l.webp", r: "assets/art/bfly-peach-r.webp" },
+      { l: "assets/art/bfly-lilac-l.webp", r: "assets/art/bfly-lilac-r.webp" }
+    ]
   },
   /* Shades for the code-drawn flower garlands, confetti and flower animals */
   garland: ["#FBE3E8", "#F7CDD7", "#F2B3C3", "#EA97AD", "#DF7E98", "#F5C4C9", "#E9A6B4", "#FFF4F1"],
@@ -853,8 +860,7 @@ function ladi(x, y, len, pal, seed, r = 7, tassel = true, still = false) {
   const R = rng(seed); let s = `<path d="M0 0 V${f1(len)}" stroke="#C9A65A" stroke-width=".8" opacity=".8"/>`;
   for (let yy = r; yy < len; yy += r * 1.65) { const k = 1 - (yy / len) * .25; s += `<g transform="translate(0 ${f1(yy)})">${pom(r * k, pickCol(pal, R), R)}</g>`; }
   if (tassel) { const c = pickCol(pal, R); s += `<g transform="translate(0 ${f1(len + r * .7)})"><circle r="${f1(r * .22)}" fill="url(#gold)"/><g transform="translate(0 ${f1(r * 1.15)}) rotate(180) scale(${f1(r / 9)})">${bud(7, "rose")}</g><path d="M0 ${f1(r * 1.15)} l${f1(-r * .5)} ${f1(-r * .5)} M0 ${f1(r * 1.15)} l${f1(r * .5)} ${f1(-r * .5)}" stroke="#87A079" stroke-width="1" opacity=".8"/></g>`; }
-  const sw = REDUCED || still ? "" : ` class="swh" style="--dur:${f1(4 + R() * 3)}s;--del:${f1(-R() * 4)}s;--amp:${f1(1.5 + R() * 2)}deg"`;
-  return `<g transform="translate(${f1(x)} ${f1(y)})"><g${sw}>${s}</g></g>`;
+  return `<g transform="translate(${f1(x)} ${f1(y)})"><g class="pend" data-l="${f1(len + r * 2)}">${s}</g></g>`;
 }
 /* a drooping swag of pom-poms between two points */
 function swag(x1, y1, x2, y2, sag, pal, seed, r = 8) {
@@ -986,29 +992,147 @@ function swingPhysics() {
   }
 }
 
-/* ---------- butterflies made of petals, wandering over the page ---------- */
+/* ---------- shared pointer tracking (mouse and touch) ---------- */
+const Pointer = { x: -999, y: -999, vx: 0, vy: 0, t: 0, subs: [] };
+(function trackPointer() {
+  const move = (x, y, tap) => { const now = performance.now(), dt = Math.max(8, now - Pointer.t);
+    if (Pointer.t && !tap) { Pointer.vx = (x - Pointer.x) / dt * 16; Pointer.vy = (y - Pointer.y) / dt * 16; } else { Pointer.vx = Pointer.vy = 0; }
+    Pointer.x = x; Pointer.y = y; Pointer.t = now; Pointer.subs.forEach(f => f(x, y, Pointer.vx, Pointer.vy, tap)); };
+  addEventListener("pointermove", e => move(e.clientX, e.clientY, false), { passive: true });
+  addEventListener("pointerdown", e => move(e.clientX, e.clientY, true), { passive: true });
+  addEventListener("touchmove", e => { const t = e.touches[0]; if (t) move(t.clientX, t.clientY, false); }, { passive: true });
+})();
+let scrollVel = 0, lastScrollY = scrollY;
+
+/* ---------- garlands: every hanging string is a pendulum you can brush, tap or scroll ---------- */
+function garlandPhysics() {
+  if (REDUCED) return;
+  const items = $$(".pend").map(el => ({ el, L: +el.dataset.l || 60, th: 0, w: 0, ph: Math.random() * 6.28, vis: false, svg: el.ownerSVGElement }));
+  const bySvg = new Map(); items.forEach(it => { if (!bySvg.has(it.svg)) bySvg.set(it.svg, []); bySvg.get(it.svg).push(it); });
+  const io = new IntersectionObserver(es => es.forEach(e => (bySvg.get(e.target) || []).forEach(it => it.vis = e.isIntersecting)), { rootMargin: "80px" });
+  bySvg.forEach((_, s) => io.observe(s));
+  Pointer.subs.push((x, y, vx, vy, tap) => {
+    for (const it of items) { if (!it.vis) continue; const r = it.el.getBoundingClientRect();
+      if (x > r.left - 22 && x < r.right + 22 && y > r.top - 8 && y < r.bottom + 16) {
+        const push = tap ? (x < r.left + r.width / 2 ? 1 : -1) * 2.2 : Math.max(-2.5, Math.min(2.5, vx * .09));
+        it.w += push * Math.min(1.6, 50 / it.L); } }
+  });
+  let last = performance.now();
+  (function frame(t) {
+    const dt = Math.min(.05, (t - last) / 1000); last = t;
+    for (const it of items) { if (!it.vis) continue;
+      const k = 1500 / it.L, idle = Math.sin(t / 1300 + it.ph) * .035 + Math.sin(t / 470 + it.ph * 2) * .008;
+      it.w += (-k * (it.th - idle) - 1.4 * it.w) * dt - scrollVel * .0009 * (60 / it.L);
+      it.th = Math.max(-.7, Math.min(.7, it.th + it.w * dt));
+      it.el.setAttribute("transform", `rotate(${(it.th / DEG).toFixed(2)})`); }
+    requestAnimationFrame(frame);
+  })(last);
+}
+
+/* ---------- border bouquets: rustle when brushed, sway with scrolling, shed petals when tapped ---------- */
+function bouquetPhysics() {
+  if (REDUCED) return;
+  const anchorOf = el => {
+    return el.matches(".br, .db, .b2, .b4") ? "50% 100%" : "50% 0";
+  };
+  const items = $$("img.corner, img.pc, img.cb, img.dt, img.db, #backdrop img").map(el => {
+    el.style.transformOrigin = anchorOf(el); const base = getComputedStyle(el).transform;
+    return { el, base: base === "none" ? "" : base, th: 0, w: 0, ph: Math.random() * 6.28 }; });
+  Pointer.subs.push((x, y, vx, vy, tap) => {
+    for (const it of items) { const r = it.el.getBoundingClientRect(); if (!r.width || x < r.left || x > r.right || y < r.top || y > r.bottom) continue;
+      if (tap) { it.w += (Math.random() < .5 ? -1 : 1) * 1.4; Petals.burst(x, y, 9); }
+      else it.w += Math.max(-.8, Math.min(.8, (vx + vy * .4) * .02)); }
+  });
+  let last = performance.now();
+  (function frame(t) {
+    const dt = Math.min(.05, (t - last) / 1000); last = t;
+    scrollVel = scrollVel * .85 + (scrollY - lastScrollY) * .15; lastScrollY = scrollY;
+    for (const it of items) { const idle = Math.sin(t / 1700 + it.ph) * .006;
+      it.w += (-26 * (it.th - idle) - 3.2 * it.w) * dt + scrollVel * .0007;
+      it.th = Math.max(-.12, Math.min(.12, it.th + it.w * dt));
+      it.el.style.transform = `${it.base} rotate(${(it.th / DEG).toFixed(2)}deg)`; }
+    requestAnimationFrame(frame);
+  })(last);
+}
+
+/* ---------- realistic butterflies: painted wings that flap in 3D, fly, glide, perch and flee ---------- */
 function butterflies() {
   if (REDUCED) return;
+  const kinds = C.images.butterflies || [];
+  if (!kinds.length) return;
   const layer = document.createElement("div"); layer.id = "flutter"; layer.setAttribute("aria-hidden", "true"); document.body.appendChild(layer);
-  const cols = [["#F2B3C3", "#DF7E98"], ["#D9C2EC", "#B98ED1"], ["#F9CDB0", "#EA97AD"], ["#FBE3E8", "#E9A6B4"]], n = innerWidth < 600 ? 3 : 5, bs = [];
+  const n = innerWidth < 600 ? 3 : 5, bs = [];
+  const perches = () => $$("img.corner, img.pc, img.cb, .arch-img, .ev-img, .couple-img, .sc").filter(el => { const r = el.getBoundingClientRect(); return r.width > 40 && r.bottom > 60 && r.top < innerHeight - 60; });
   for (let i = 0; i < n; i++) {
-    const [a, b] = cols[i % cols.length], el = document.createElement("div"); el.className = "bfly";
-    el.innerHTML = `<svg viewBox="-20 -16 40 32"><g class="wl"><path d="M0 0 C-6 -14 -20 -16 -18 -4 C-17 2 -8 3 0 0Z" fill="${a}" stroke="${b}" stroke-width=".6"/><path d="M0 1 C-6 3 -14 8 -10 13 C-6 16 -2 8 0 2Z" fill="${b}" opacity=".9"/><circle cx="-10" cy="-6" r="2" fill="#fff" opacity=".6"/></g><g class="wr"><path d="M0 0 C6 -14 20 -16 18 -4 C17 2 8 3 0 0Z" fill="${a}" stroke="${b}" stroke-width=".6"/><path d="M0 1 C6 3 14 8 10 13 C6 16 2 8 0 2Z" fill="${b}" opacity=".9"/><circle cx="10" cy="-6" r="2" fill="#fff" opacity=".6"/></g><ellipse rx="1.3" ry="7" fill="#6E5A57"/><path d="M0 -6 C-2 -10 -4 -12 -5 -13 M0 -6 C2 -10 4 -12 5 -13" stroke="#6E5A57" stroke-width=".6" fill="none"/></svg>`;
-    el.style.setProperty("--flap", (.22 + Math.random() * .12).toFixed(2) + "s");
+    const k = kinds[i % kinds.length], el = document.createElement("div"); el.className = "bfly";
+    el.innerHTML = `<div class="bf-in"><img class="wl" src="${esc(k.l)}" alt=""><img class="wr" src="${esc(k.r)}" alt=""></div>`;
     layer.appendChild(el);
-    bs.push({ el, x: Math.random() * innerWidth, y: Math.random() * innerHeight, a: Math.random() * 6.28, v: 26 + Math.random() * 18, s: .8 + Math.random() * .5 });
+    const side = i % 2 ? 1 : -1;
+    bs.push({ el, wl: el.querySelector(".wl"), wr: el.querySelector(".wr"), x: side > 0 ? innerWidth + 40 : -40, y: 120 + Math.random() * (innerHeight - 240),
+      vx: 0, vy: 0, head: 0, size: 34 + Math.random() * 12, phase: Math.random() * 6.28, freq: 8 + Math.random() * 3, state: "fly",
+      tx: innerWidth / 2, ty: innerHeight / 2, timer: 2 + Math.random() * 3, glide: 0, perch: null, wiggle: Math.random() * 100, speed: 75 + Math.random() * 35 });
   }
+  const newWander = b => { b.tx = 40 + Math.random() * (innerWidth - 80); b.ty = 90 + Math.random() * (innerHeight - 180); b.timer = 2.5 + Math.random() * 4; };
+  const tryPerch = b => { const ps = perches(); if (!ps.length) return false; const el = ps[Math.floor(Math.random() * ps.length)];
+    b.perch = { el, fx: .2 + Math.random() * .6, fy: .12 + Math.random() * .45 }; b.state = "land"; return true; };
+  const perchPos = b => { const r = b.perch.el.getBoundingClientRect(); return [r.left + r.width * b.perch.fx, r.top + r.height * b.perch.fy, r]; };
+  Pointer.subs.push((x, y) => bs.forEach(b => { if (b.state !== "fly" && Math.hypot(b.x - x, b.y - y) < 70) { b.state = "fly"; b.perch = null; b.tx = b.x + (b.x - x) * 4; b.ty = b.y - 120; b.timer = 1.6; } }));
   let last = performance.now(), raf = 0;
   const frame = t => {
-    const dt = Math.min(.05, (t - last) / 1000); last = t; const W = innerWidth, H = innerHeight;
-    bs.forEach(b => { b.a += (Math.random() - .5) * 2.4 * dt + Math.sin(t / 900 + b.v) * .6 * dt;
-      b.x += Math.cos(b.a) * b.v * dt; b.y += Math.sin(b.a) * b.v * dt + Math.sin(t / 260 + b.v) * .35;
-      if (b.x < -30) b.x = W + 20; if (b.x > W + 30) b.x = -20; if (b.y < 40) b.a = Math.abs(b.a); if (b.y > H - 40) b.a = -Math.abs(b.a);
-      b.el.style.transform = `translate3d(${b.x.toFixed(1)}px,${b.y.toFixed(1)}px,0) rotate(${(Math.cos(b.a) * 18).toFixed(1)}deg) scale(${b.s})`; });
+    const dt = Math.min(.05, (t - last) / 1000); last = t;
+    for (const b of bs) {
+      let flapAmp = 1, openBase = 12;
+      if (b.state === "perch") {
+        const [px, py, r] = perchPos(b);
+        if (r.bottom < 40 || r.top > innerHeight - 40) { b.state = "fly"; b.perch = null; newWander(b); }
+        else { b.x = px; b.y = py; }
+        b.timer -= dt; b.phase += dt * 2.2;
+        const a = 18 + 32 * (.5 + .5 * Math.sin(b.phase));
+        b.wl.style.transform = `rotateY(${a.toFixed(1)}deg)`; b.wr.style.transform = `rotateY(${(-a).toFixed(1)}deg)`;
+        if (b.timer <= 0) { b.state = "fly"; b.perch = null; newWander(b); b.vy = -40; }
+      } else {
+        if (b.state === "land") { const [px, py] = perchPos(b); b.tx = px; b.ty = py;
+          if (Math.hypot(px - b.x, py - b.y) < 8) { b.state = "perch"; b.timer = 2.5 + Math.random() * 4; b.vx = b.vy = 0; } }
+        else { b.timer -= dt; if (b.timer <= 0 || Math.hypot(b.tx - b.x, b.ty - b.y) < 20) { if (Math.random() < .4 && tryPerch(b)) {} else newWander(b); } }
+        b.wiggle += dt;
+        const ang = Math.atan2(b.ty - b.y, b.tx - b.x) + Math.sin(b.wiggle * 1.7) * .6 + Math.sin(b.wiggle * 4.3) * .25;
+        const near = b.state === "land" ? Math.min(1, Math.hypot(b.tx - b.x, b.ty - b.y) / 80) : 1, sp = b.speed * (.35 + .65 * near);
+        b.vx += (Math.cos(ang) * sp - b.vx) * Math.min(1, 2.6 * dt); b.vy += (Math.sin(ang) * sp - b.vy) * Math.min(1, 2.6 * dt);
+        if (b.glide > 0) { b.glide -= dt; flapAmp = 0; openBase = 14; } else if (Math.random() < dt * .35 && b.state === "fly") b.glide = .3 + Math.random() * .45;
+        b.phase += dt * b.freq * 6.283;
+        const s = Math.sin(b.phase), a = flapAmp ? 8 + 66 * (.5 + .5 * s) : openBase;
+        b.x += b.vx * dt; b.y += b.vy * dt + (flapAmp ? -s * .9 : .35);
+        b.wl.style.transform = `rotateY(${a.toFixed(1)}deg)`; b.wr.style.transform = `rotateY(${(-a).toFixed(1)}deg)`;
+        if (b.x < -60) b.x = innerWidth + 50; if (b.x > innerWidth + 60) b.x = -50; b.y = Math.max(-40, Math.min(innerHeight + 40, b.y));
+      }
+      if (b.state !== "perch") { const want = Math.atan2(b.vy, b.vx) + Math.PI / 2; let d = want - b.head; d = Math.atan2(Math.sin(d), Math.cos(d)); b.head += d * Math.min(1, 5 * dt); }
+      b.el.style.transform = `translate3d(${(b.x - b.size / 2).toFixed(1)}px,${(b.y - b.size * .35).toFixed(1)}px,0) rotate(${(b.head / DEG).toFixed(1)}deg)`;
+      b.el.style.width = b.size + "px";
+    }
     raf = requestAnimationFrame(frame);
   };
   raf = requestAnimationFrame(frame);
   document.addEventListener("visibilitychange", () => { if (document.hidden) cancelAnimationFrame(raf); else { last = performance.now(); raf = requestAnimationFrame(frame); } });
+}
+
+/* ---------- wedding monogram crest: interlocked initials, names and date on a gold ring ---------- */
+let monoN = 0;
+function monogramSVG(cls = "", opt = {}) {
+  const id = "mc" + (monoN++), [a, b] = C.couple.monogram, top = `${B.first}  ·  ${G.first}`.toUpperCase();
+  const sprig = (x, flip) => `<g transform="translate(${x} 0) scale(${flip ? -1 : 1} 1)">${[[0, 0, -60], [4, -2, -40], [4, 2, -120], [8, -3, -35], [8, 3, -125]].map(([dx, dy, r]) => `<ellipse cx="${dx}" cy="${dy}" rx="3.4" ry="1.3" transform="rotate(${r + 90} ${dx} ${dy})" fill="#87A079"/>`).join("")}<circle cx="-3" r="1.4" fill="url(#gold)"/></g>`;
+  return `<svg class="monogram ${cls}" viewBox="-100 -100 200 200" role="img" aria-label="Monogram of ${esc(B.first)} and ${esc(G.first)}">
+    <defs><path id="${id}t" d="M-77 0 A77 77 0 0 1 77 0"/><path id="${id}b" d="M-84 0 A84 84 0 0 0 84 0"/></defs>
+    ${opt.bg ? `<circle r="97" fill="${opt.bg}"/>` : ""}
+    <circle r="96" fill="none" stroke="url(#gold)" stroke-width="1.6"/><circle r="91" fill="none" stroke="url(#gold)" stroke-width=".5"/>
+    <circle r="66" fill="none" stroke="url(#gold)" stroke-width=".7"/>
+    <text font-family="Montserrat, sans-serif" font-weight="500" font-size="10.5" letter-spacing="4.2" fill="#8C6B2F" text-anchor="middle"><textPath href="#${id}t" startOffset="50%">${esc(top)}</textPath></text>
+    <text font-family="Montserrat, sans-serif" font-weight="500" font-size="9.5" letter-spacing="3.6" fill="#8C6B2F" text-anchor="middle"><textPath href="#${id}b" startOffset="50%">${esc(C.hero.dateText)}</textPath></text>
+    ${sprig(-80, false)}${sprig(80, true)}
+    <path d="M3 -46 L-3 50" stroke="url(#gold)" stroke-width=".8"/>
+    <text x="-21" y="10" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="500" font-size="74" fill="url(#goldText)" text-anchor="middle">${esc(a)}</text>
+    <text x="22" y="40" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="500" font-size="74" fill="url(#goldText)" text-anchor="middle">${esc(b)}</text>
+    <circle cx="3.5" cy="-50" r="2" fill="url(#gold)"/><circle cx="-3.5" cy="54" r="2" fill="url(#gold)"/>
+  </svg>`;
 }
 
 /* =====================================================================
@@ -1185,7 +1309,7 @@ function build() {
   $("#invite").innerHTML = `
   <section class="sec hero" id="hero" aria-label="${esc(B.first)} and ${esc(G.first)} are getting married">
     ${toranSVG(400, C.garland, 7, { segs: 3, h: 160, ladi: 60, sag: 30, r: 10.5 })}
-    ${artImg(ART.cornerTL.src, "corner tl", "", 'data-par="0.12"')}${artImg(ART.cornerTL.src, "corner tr", "", 'data-par="0.12"')}
+    ${artImg(ART.cornerTL.src, "corner tl")}${artImg(ART.cornerTL.src, "corner tr")}
     <div class="blessing rv"><div class="dev" lang="sa">${esc(C.blessing.line)}</div><span class="sub">${esc(C.blessing.sub)}</span></div>
     <div class="hero-art rv" style="--d:.2s" id="heroArt">
       <div class="sky"></div><div class="ground"></div>
@@ -1206,7 +1330,7 @@ function build() {
       <div class="pframe">${artImg(ART.portrait.src, "p-img", `Portrait of ${B.full} and ${G.full}`)}</div>
       ${artImg(ART.cornerTL.src, "pc tl")}${artImg(ART.cornerBR.src, "pc br")}
     </div>
-    <div class="mono-mid rv">${wreathSVG("", 100, 17, 0, monoText(70, 4))}</div>
+    <div class="mono-mid rv">${monogramSVG()}</div>
     <div class="pair names-only">
       <div class="person rv"><h3 class="script">${esc(B.full)}</h3><span class="of">${esc(B.relation)}</span><p class="parents">${esc(B.parents)}</p><span class="city">${esc(B.city)}</span></div>
       <div class="person rv" style="--d:.15s"><h3 class="script">${esc(G.full)}</h3><span class="of">${esc(G.relation)}</span><p class="parents">${esc(G.parents)}</p><span class="city">${esc(G.city)}</span></div>
@@ -1313,7 +1437,7 @@ function buildOpener() {
     <div class="door r"><div class="panel"></div>${sprinkle(502)}${doorTop(402)}${artImg(ART.cornerTL.src, "dt")}${artImg(ART.cornerBR.src, "db")}${seam(412)}</div>
     <div class="invite-tag"><span class="label">${esc(B.first)} &amp; ${esc(G.first)} · ${esc(C.hero.dateText)}</span><p>${line}</p></div>
     <div class="seal"><div class="disc"></div>${wreathSVG("wr", 100, 5, 1, "", 128)}
-      <div class="mono"><b class="foil-dark">${esc(C.couple.monogram[0])} <span style="font:inherit;letter-spacing:0;padding:0;animation:none;color:#C98A8F;font-size:.55em;vertical-align:.2em">❀</span> ${esc(C.couple.monogram[1])}</b><span>${esc(C.opener.tap)}</span></div></div>`;
+      <div class="mono">${monogramSVG("", { bg: "#FFFDF9" })}</div></div><div class="tap">${esc(C.opener.tap)}</div>`;
   op.setAttribute("aria-label", `${GUEST ? `Dear ${GUEST}, you are invited. ` : ""}Open the invitation of ${B.first} and ${G.first}`);
   let opened = false;
   const open = () => {
@@ -1560,7 +1684,8 @@ function buildOG() {
     <image href="${ART.couple.src}" x="215" y="130" width="230" height="372" preserveAspectRatio="xMidYMax meet"/>
     <image href="${ART.arch.src}" x="130" y="40" width="400" height="533"/>
     <g font-family="'Cormorant Garamond', Georgia, serif" text-anchor="middle">
-      <text x="820" y="200" font-family="Montserrat, sans-serif" font-size="17" letter-spacing="6" fill="#4F6B4A">TOGETHER WITH THEIR FAMILIES</text>
+      <g transform="translate(820 112) scale(.42)">${monogramSVG().replace(/^<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "")}</g>
+      <text x="820" y="208" font-family="Montserrat, sans-serif" font-size="17" letter-spacing="6" fill="#4F6B4A">TOGETHER WITH THEIR FAMILIES</text>
       <text x="820" y="320" font-family="Parisienne, cursive" font-size="118" fill="#A4626B">Ira <tspan fill="#C9A65A" font-size="80">&amp;</tspan> Neel</text>
       <text x="820" y="384" font-style="italic" font-size="34" fill="#4A3B3A">are getting married</text>
       <path d="M690 428 H760 M880 428 H950" stroke="url(#gold)" stroke-width="1.2"/>
@@ -1576,7 +1701,7 @@ if (params.has("og")) { buildOG(); }
 else {
   build(); buildBackdrop(); buildOpener(); imageSlots(); reveals(); countdown(); calendarButtons();
   const su = storyVine(); scrollLoop(su);
-  swingPhysics(); butterflies();
+  swingPhysics(); butterflies(); garlandPhysics(); bouquetPhysics();
   const pk = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { $(".peacock").classList.add("in"); pk.disconnect(); } }), { threshold: .35 }); pk.observe($("#peacock"));
   const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const r = $("#signArt").getBoundingClientRect(); Petals.burst(r.left + r.width / 2, r.top + r.height / 2, 50); so.disconnect(); } }), { threshold: .6 }); so.observe($("#signArt"));
   $("#rsvpBtn").addEventListener("click", e => Petals.burst(e.clientX, e.clientY, 46));
