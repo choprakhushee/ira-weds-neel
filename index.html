@@ -120,7 +120,7 @@ a{color:inherit}
   background:radial-gradient(circle at 35% 30%,#FFFDF9,#F6E6E1);box-shadow:0 8px 22px -8px rgba(110,60,60,.45),inset 0 0 0 1px rgba(201,166,90,.6);opacity:0;visibility:hidden;transition:opacity .8s ease,visibility .8s}
 #music.show{opacity:1;visibility:visible}
 #music svg{width:100%;height:100%}
-#music .rs{transform-origin:50% 50%;transition:opacity .5s}
+#music .rs{transform-box:fill-box;transform-origin:50% 50%;transition:opacity .5s}
 #music.on .rs{animation:spin 14s linear infinite}
 #music:not(.on) .rs{opacity:.55;filter:grayscale(.6)}
 #music .bar{opacity:0;transition:opacity .4s}
@@ -1539,7 +1539,7 @@ const Music = (() => {
     master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value, t); master.gain.linearRampToValueAtTime(0, t + .6);
     clearInterval(timer); setTimeout(() => { if (!on) ctx.suspend(); }, 700);
   }
-  btn.innerHTML = `<svg viewBox="-24 -24 48 48" aria-hidden="true"><g class="rs" filter="url(#wc)">${rose(15, "rose", rng(9))}</g><path class="bar" d="M-13 13 L13 -13" stroke="#A4626B" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+  btn.innerHTML = `<svg viewBox="-24 -24 48 48" aria-hidden="true"><g class="rs">${rose(15, "rose", rng(9))}</g><path class="bar" d="M-13 13 L13 -13" stroke="#A4626B" stroke-width="1.8" stroke-linecap="round"/></svg>`;
   btn.addEventListener("click", () => on ? pause() : start());
   document.addEventListener("visibilitychange", () => { if (!ctx) return; if (document.hidden && on) { ctx.suspend(); clearInterval(timer); } else if (!document.hidden && on) { ctx.resume(); nextBar = Math.max(nextBar, ctx.currentTime + .1); timer = setInterval(pump, 250); } });
   return { start, pause, get on() { return on; } };
